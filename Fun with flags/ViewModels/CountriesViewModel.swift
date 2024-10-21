@@ -10,7 +10,10 @@ import Combine
 
 class CountriesViewModel: ObservableObject {
     @Published var countries: [Country] = []
-    @Published var searchText = ""
+    @Published var filteredCountries: [Country] = []
+    @Published var selectedRegion: String = ""
+    @Published var searchText: String = ""
+    @Published var regions: [String] = []
 
     private var cancellable: AnyCancellable?
 
@@ -19,7 +22,6 @@ class CountriesViewModel: ObservableObject {
     }
 
     func fetchCountries() {
-//        let url = URL(string: "https://restcountries.com/v3.1/all")!
         let url = URL(string: "https://restcountries.com/v3.1/all?fields=flags,name,region,currencies,languages,capital,capitalInfo")!
 
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
@@ -27,14 +29,20 @@ class CountriesViewModel: ObservableObject {
             .decode(type: [Country].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .catch { _ in Just([]) }
-            .assign(to: \.countries, on: self)
+            .sink { [weak self] countries in
+                self?.countries = countries
+
+                let uniqueRegions = Set(countries.compactMap { $0.region })
+                self?.regions = Array(uniqueRegions)
+
+                self?.filterCountries()
+            }
     }
 
-    var filteredCountries: [Country] {
-        if searchText.isEmpty {
-            return countries
-        } else {
-            return countries.filter { $0.name.common.lowercased().contains(searchText.lowercased()) }
+    func filterCountries() {
+        filteredCountries = countries.filter { country in
+            (selectedRegion.isEmpty || country.region == selectedRegion) &&
+            (searchText.isEmpty || country.name.common.localizedCaseInsensitiveContains(searchText))
         }
     }
 }
