@@ -4,16 +4,23 @@
 //
 //  Created by Georgios Stamelakis on 21/10/24.
 //
+
 import SwiftUI
 import MapKit
 
 struct CountryDetailView: View {
     let country: Country
 
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 0.0, longitude: 0.0),
-        span: MKCoordinateSpan(latitudeDelta: 10.0, longitudeDelta: 10.0)
-    )
+    @StateObject private var viewModel: CountryDetailViewModel
+
+    init(country: Country) {
+        self.country = country
+        if let latlng = country.capitalInfo?.latlng, latlng.count == 2 {
+            _viewModel = StateObject(wrappedValue: CountryDetailViewModel(lat: latlng[0], lon: latlng[1]))
+        } else {
+            _viewModel = StateObject(wrappedValue: CountryDetailViewModel(lat: 0.0, lon: 0.0))
+        }
+    }
 
     var body: some View {
         ScrollView {
@@ -61,15 +68,10 @@ struct CountryDetailView: View {
                         .font(.headline)
                         .padding(.bottom, 8)
 
-                    Map(coordinateRegion: $region)
+                    Map(coordinateRegion: .constant(viewModel.region))
                         .frame(height: 300)
                         .cornerRadius(12)
                         .shadow(radius: 4)
-                        .onAppear {
-                            DispatchQueue.main.async {
-                                region.center = CLLocationCoordinate2D(latitude: latlng[0], longitude: latlng[1])
-                            }
-                        }
                 }
             }
             .padding()
