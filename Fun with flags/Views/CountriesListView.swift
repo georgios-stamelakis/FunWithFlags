@@ -23,10 +23,23 @@ struct CountriesListView: View {
                     }
                     .pickerStyle(MenuPickerStyle())
 
-                    // Search Bar for country name search
-                    TextField("Search Countries", text: $viewModel.searchText)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
+                    ZStack(alignment: .trailing) {
+                        // Search Bar for country name search
+                        TextField("Search Countries", text: $viewModel.searchText)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .padding(.trailing, 50)
+
+                        // Cancel Search Button
+                        if !viewModel.searchText.isEmpty {
+                            Button(action: {
+                                viewModel.searchText = ""
+                            }) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .padding(.trailing, 8)
+                            }
+                            .padding(.trailing)
+                        }
+                    }
                 }
 
                 List {
