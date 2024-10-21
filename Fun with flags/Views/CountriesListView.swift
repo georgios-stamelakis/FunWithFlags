@@ -37,7 +37,7 @@ struct CountriesListView: View {
                             Text(country.name.common)
                             Text(country.region)
                                 .font(.subheadline)
-                                .foregroundColor(.secondary)
+                                .foregroundStyle(.secondary)
                         }
                     }
                 }

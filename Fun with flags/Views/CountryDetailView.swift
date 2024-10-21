@@ -26,6 +26,11 @@ struct CountryDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
 
+                // Official Country Name
+                Text("\(country.name.official)")
+                    .font(.title2)
+                    .foregroundStyle(.secondary)
+
                 // Flag Section
                 VStack(alignment: .center, spacing: 12) {
                     AsyncImage(url: URL(string: country.flags.png)) { image in
@@ -46,15 +51,13 @@ struct CountryDetailView: View {
 
                 // Country details
                 VStack(alignment: .leading, spacing: 8) {
-                    Text("Official Name: \(country.name.official)")
-                        .font(.headline)
-                    Text("Region: \(country.region)")
+                    Text("**Region:** \(country.region)")
                         .font(.subheadline)
-                    Text("Capital: \(country.capital?.first ?? "N/A")")
+                    Text("**Capital:** \(country.capital?.first ?? "N/A")")
                         .font(.subheadline)
-                    Text("Currency: \(country.currencies?.first?.value.name ?? "N/A")(\(country.currencies?.first?.value.symbol ?? "N/A"))")
+                    Text("**Currency:** \(country.currencies?.first?.value.name ?? "N/A")(\(country.currencies?.first?.value.symbol ?? "N/A"))")
                         .font(.subheadline)
-                    Text("Languages: \(country.languages?.values.joined(separator: ", ") ?? "N/A")")
+                    Text("**Language\(country.languages?.count ?? 0 > 1 ? "s" : ""):** \(country.languages?.isEmpty == false ? country.languages?.values.joined(separator: ", ") ?? "N/A" : "N/A")")
                         .font(.subheadline)
                 }
                 .padding(.vertical, 16)
