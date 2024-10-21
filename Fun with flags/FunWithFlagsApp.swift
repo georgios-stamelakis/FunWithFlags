@@ -11,7 +11,7 @@ import SwiftUI
 struct FunWithFlagsApp: App {
     var body: some Scene {
         WindowGroup {
-            CountriesListView()
+            SplashScreenView()
         }
     }
 }

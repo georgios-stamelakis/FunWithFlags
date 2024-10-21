@@ -15,6 +15,7 @@
 		0D7A689C2CC686F7001E5B90 /* CountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A689B2CC686F7001E5B90 /* CountriesViewModel.swift */; };
 		0D7A68A02CC68793001E5B90 /* CountryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A689F2CC68793001E5B90 /* CountryDetailView.swift */; };
 		0D7A68A22CC6C400001E5B90 /* CountryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A68A12CC6C400001E5B90 /* CountryDetailViewModel.swift */; };
+		0D7A68A42CC6DCAE001E5B90 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A68A32CC6DCAE001E5B90 /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		0D7A689B2CC686F7001E5B90 /* CountriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesViewModel.swift; sourceTree = "<group>"; };
 		0D7A689F2CC68793001E5B90 /* CountryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailView.swift; sourceTree = "<group>"; };
 		0D7A68A12CC6C400001E5B90 /* CountryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewModel.swift; sourceTree = "<group>"; };
+		0D7A68A32CC6DCAE001E5B90 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		0D7A68892CC67679001E5B90 /* Fun with flags */ = {
 			isa = PBXGroup;
 			children = (
+				0D7A68A32CC6DCAE001E5B90 /* SplashScreenView.swift */,
 				0D7A688A2CC67679001E5B90 /* FunWithFlagsApp.swift */,
 				0D7A689E2CC68761001E5B90 /* Views */,
 				0D7A689D2CC68739001E5B90 /* ViewModels */,
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D7A68A42CC6DCAE001E5B90 /* SplashScreenView.swift in Sources */,
 				0D7A688D2CC67679001E5B90 /* CountriesListView.swift in Sources */,
 				0D7A689A2CC685DA001E5B90 /* Country.swift in Sources */,
 				0D7A68A22CC6C400001E5B90 /* CountryDetailViewModel.swift in Sources */,
