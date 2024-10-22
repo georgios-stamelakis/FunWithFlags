@@ -61,8 +61,8 @@
 		0D7A68892CC67679001E5B90 /* Fun with flags */ = {
 			isa = PBXGroup;
 			children = (
-				0D7A68A32CC6DCAE001E5B90 /* SplashScreenView.swift */,
 				0D7A688A2CC67679001E5B90 /* FunWithFlagsApp.swift */,
+				0D7A68A32CC6DCAE001E5B90 /* SplashScreenView.swift */,
 				0D7A689E2CC68761001E5B90 /* Views */,
 				0D7A689D2CC68739001E5B90 /* ViewModels */,
 				0D7A68982CC68418001E5B90 /* Models */,

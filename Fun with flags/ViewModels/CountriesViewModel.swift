@@ -26,16 +26,19 @@ class CountriesViewModel: ObservableObject {
 
         cancellable = URLSession.shared.dataTaskPublisher(for: url)
             .map { $0.data }
+            //TODO: use .tryMap for error handling
             .decode(type: [Country].self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .catch { _ in Just([]) }
             .sink { [weak self] countries in
-                self?.countries = countries
+                guard let self = self else { return }
+
+                self.countries = countries
 
                 let uniqueRegions = Set(countries.compactMap { $0.region })
-                self?.regions = Array(uniqueRegions)
+                self.regions = Array(uniqueRegions)
 
-                self?.filterCountries()
+                self.filterCountries()
             }
     }
 
