@@ -15,31 +15,30 @@ class CountriesViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var regions: [String] = []
 
-    private var cancellable: AnyCancellable?
+    private var cancellables = Set<AnyCancellable>()
+    private let repository: CountriesRepositoryProtocol
 
-    init() {
+    init(repository: CountriesRepositoryProtocol = CountriesRepository()) {
+        self.repository = repository
         fetchCountries()
     }
 
     func fetchCountries() {
-        let url = URL(string: "https://restcountries.com/v3.1/all?fields=flags,name,region,currencies,languages,capital,capitalInfo")!
-
-        cancellable = URLSession.shared.dataTaskPublisher(for: url)
-            .map { $0.data }
-            //TODO: use .tryMap for error handling
-            .decode(type: [Country].self, decoder: JSONDecoder())
+        repository.getCountries()
             .receive(on: DispatchQueue.main)
-            .catch { _ in Just([]) }
-            .sink { [weak self] countries in
-                guard let self = self else { return }
-
-                self.countries = countries
-
-                let uniqueRegions = Set(countries.compactMap { $0.region })
-                self.regions = Array(uniqueRegions)
-
-                self.filterCountries()
-            }
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .failure(let error):
+                    print("Error fetching countries: \(error)")
+                case .finished:
+                    break
+                }
+            }, receiveValue: { [weak self] countries in
+                self?.countries = countries
+                self?.regions = Array(Set(countries.compactMap { $0.region }))
+                self?.filterCountries()
+            })
+            .store(in: &cancellables)
     }
 
     func filterCountries() {
