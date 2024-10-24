@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CapitalEntity" representedClassName="CapitalEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="countryCapital" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CountryEntity" inverseName="capitalRelationship" inverseEntity="CountryEntity"/>
+    </entity>
+    <entity name="CountryEntity" representedClassName="CountryEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="capitalLatitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="capitalLongitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="flagsAlt" optional="YES" attributeType="String"/>
+        <attribute name="flagsPng" attributeType="String"/>
+        <attribute name="flagsSvg" attributeType="String"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nameCommon" attributeType="String"/>
+        <attribute name="nameOfficial" attributeType="String"/>
+        <attribute name="region" attributeType="String"/>
+        <relationship name="capitalRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CapitalEntity" inverseName="countryCapital" inverseEntity="CapitalEntity"/>
+        <relationship name="currencyRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CurrencyEntity" inverseName="countryCurrency" inverseEntity="CurrencyEntity"/>
+        <relationship name="languageRelationship" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LanguageEntity" inverseName="countryLanguage" inverseEntity="LanguageEntity"/>
+    </entity>
+    <entity name="CurrencyEntity" representedClassName="CurrencyEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="currencyISO" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="symbol" optional="YES" attributeType="String"/>
+        <relationship name="countryCurrency" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CountryEntity" inverseName="currencyRelationship" inverseEntity="CountryEntity"/>
+    </entity>
+    <entity name="LanguageEntity" representedClassName="LanguageEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="code" attributeType="String"/>
+        <attribute name="language" attributeType="String"/>
+        <relationship name="countryLanguage" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="CountryEntity" inverseName="languageRelationship" inverseEntity="CountryEntity"/>
+    </entity>
+</model>
