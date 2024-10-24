@@ -17,6 +17,7 @@
 		0D01D4F42CC90CCC00E8DD3F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D4F32CC90CCC00E8DD3F /* CoreDataService.swift */; };
 		0D01D5002CCA88A200E8DD3F /* CountryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D4FF2CCA88A200E8DD3F /* CountryRow.swift */; };
 		0D01D5022CCA955C00E8DD3F /* CustomAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D5012CCA955C00E8DD3F /* CustomAsyncImage.swift */; };
+		0D01D5052CCABD3800E8DD3F /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D5042CCABD3800E8DD3F /* Location.swift */; };
 		0D7A688B2CC67679001E5B90 /* FunWithFlagsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A688A2CC67679001E5B90 /* FunWithFlagsApp.swift */; };
 		0D7A688D2CC67679001E5B90 /* CountriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A688C2CC67679001E5B90 /* CountriesListView.swift */; };
 		0D7A688F2CC6767B001E5B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D7A688E2CC6767B001E5B90 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		0D01D4F32CC90CCC00E8DD3F /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		0D01D4FF2CCA88A200E8DD3F /* CountryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRow.swift; sourceTree = "<group>"; };
 		0D01D5012CCA955C00E8DD3F /* CustomAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImage.swift; sourceTree = "<group>"; };
+		0D01D5042CCABD3800E8DD3F /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		0D7A68872CC67679001E5B90 /* Fun with flags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fun with flags.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7A688A2CC67679001E5B90 /* FunWithFlagsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunWithFlagsApp.swift; sourceTree = "<group>"; };
 		0D7A688C2CC67679001E5B90 /* CountriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListView.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				0D7A68992CC685DA001E5B90 /* Country.swift */,
+				0D01D5042CCABD3800E8DD3F /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				0D01D4E12CC8371E00E8DD3F /* CountriesRepository.swift in Sources */,
 				0D7A68A42CC6DCAE001E5B90 /* SplashScreenView.swift in Sources */,
 				0D7A688D2CC67679001E5B90 /* CountriesListView.swift in Sources */,
+				0D01D5052CCABD3800E8DD3F /* Location.swift in Sources */,
 				0D01D4F42CC90CCC00E8DD3F /* CoreDataService.swift in Sources */,
 				0D01D4F02CC8FC8D00E8DD3F /* LocalCountriesDataSource.swift in Sources */,
 				0D01D5022CCA955C00E8DD3F /* CustomAsyncImage.swift in Sources */,

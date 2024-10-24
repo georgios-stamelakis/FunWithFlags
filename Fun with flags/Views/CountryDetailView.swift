@@ -75,7 +75,13 @@ struct CountryDetailView: View {
                     }
                     .padding(.bottom, 8)
 
-                    Map(coordinateRegion: $viewModel.region)
+                    let capitalCenter = CLLocationCoordinate2D(latitude: latlng[0], longitude: latlng[1])
+                    let annotations = [
+                        Location(name: country.name.common, coordinate: capitalCenter)
+                    ]
+                    Map(coordinateRegion: $viewModel.region, annotationItems: annotations, annotationContent: {
+                        MapPin(coordinate: $0.coordinate)
+                    })
                         .frame(height: 300)
                         .cornerRadius(12)
                         .shadow(radius: 4)
