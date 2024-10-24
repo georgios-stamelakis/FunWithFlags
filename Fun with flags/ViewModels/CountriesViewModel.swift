@@ -15,6 +15,8 @@ class CountriesViewModel: ObservableObject {
     @Published var searchText: String = ""
     @Published var regions: [String] = []
 
+    @Published var isFetching: Bool = false
+
     private var cancellables = Set<AnyCancellable>()
     private let repository: CountriesRepositoryProtocol
 
@@ -24,9 +26,18 @@ class CountriesViewModel: ObservableObject {
     }
 
     func fetchCountries() {
+
+        guard !isFetching else {
+                  print("Fetch is already in progress. Skip")
+                  return
+              }
+        isFetching = true
+
         repository.getCountries()
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { completion in
+            .sink(receiveCompletion: { [weak self] completion in
+                self?.isFetching = false
+
                 switch completion {
                 case .failure(let error):
                     print("Error fetching countries: \(error)")

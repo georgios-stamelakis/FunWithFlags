@@ -72,6 +72,13 @@ struct Country: Decodable, Identifiable {
         let png: String
         let svg: String
         let alt: String?
+        var local: URL {
+            guard let path = URL(string: png)?.lastPathComponent else { return URL(string: "")! }
+                let fileManager = FileManager.default
+                let cachesDirectory = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first!
+                let localURL = cachesDirectory.appendingPathComponent(path)
+                return localURL
+        }
     }
 
     struct Currency: Decodable {

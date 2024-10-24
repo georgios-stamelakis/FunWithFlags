@@ -33,7 +33,7 @@ struct CountryDetailView: View {
 
                 // Flag Section
                 VStack(alignment: .center, spacing: 12) {
-                    AsyncImage(url: URL(string: country.flags.png)) { image in
+                    AsyncImage(url: country.flags.local) { image in
                         image
                             .resizable()
                             .background(

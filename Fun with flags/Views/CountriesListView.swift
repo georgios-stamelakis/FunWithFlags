@@ -52,7 +52,7 @@ struct CountriesListView: View {
                             NavigationLink(destination: CountryDetailView(country: country)) {
                                 HStack {
                                     // Flag Section
-                                    AsyncImage(url: URL(string: country.flags.png)) { image in
+                                    AsyncImage(url: country.flags.local) { image in
                                         image
                                             .resizable()
                                             .background(
