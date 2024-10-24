@@ -63,11 +63,19 @@ struct CountryDetailView: View {
                     .padding(.vertical, 16)
 
                 if let latlng = country.capitalInfo?.latlng, latlng.count == 2 {
-                    Text("Location of Capital")
-                        .font(.headline)
-                        .padding(.bottom, 8)
+                    HStack {
+                        Text("Location of Capital")
+                            .font(.headline)
 
-                    Map(coordinateRegion: .constant(viewModel.region))
+                        Button(action: {
+                            viewModel.updateRegion(lat: latlng[0], lon: latlng[1])
+                        }) {
+                            Image(systemName: "scope")
+                        }
+                    }
+                    .padding(.bottom, 8)
+
+                    Map(coordinateRegion: $viewModel.region)
                         .frame(height: 300)
                         .cornerRadius(12)
                         .shadow(radius: 4)
