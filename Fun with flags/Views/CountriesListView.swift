@@ -27,6 +27,7 @@ struct CountriesListView: View {
                         // Search Bar for country name search
                         TextField("Search Countries", text: $viewModel.searchText)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .disableAutocorrection(true)
                             .padding(.trailing, 50)
 
                         // Cancel Search Button
