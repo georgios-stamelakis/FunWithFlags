@@ -15,6 +15,8 @@
 		0D01D4F02CC8FC8D00E8DD3F /* LocalCountriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D4EF2CC8FC8D00E8DD3F /* LocalCountriesDataSource.swift */; };
 		0D01D4F22CC8FF3200E8DD3F /* NetworkCountriesDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D4F12CC8FF3200E8DD3F /* NetworkCountriesDataSource.swift */; };
 		0D01D4F42CC90CCC00E8DD3F /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D4F32CC90CCC00E8DD3F /* CoreDataService.swift */; };
+		0D01D5002CCA88A200E8DD3F /* CountryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D4FF2CCA88A200E8DD3F /* CountryRow.swift */; };
+		0D01D5022CCA955C00E8DD3F /* CustomAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D01D5012CCA955C00E8DD3F /* CustomAsyncImage.swift */; };
 		0D7A688B2CC67679001E5B90 /* FunWithFlagsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A688A2CC67679001E5B90 /* FunWithFlagsApp.swift */; };
 		0D7A688D2CC67679001E5B90 /* CountriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7A688C2CC67679001E5B90 /* CountriesListView.swift */; };
 		0D7A688F2CC6767B001E5B90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D7A688E2CC6767B001E5B90 /* Assets.xcassets */; };
@@ -35,6 +37,8 @@
 		0D01D4EF2CC8FC8D00E8DD3F /* LocalCountriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalCountriesDataSource.swift; sourceTree = "<group>"; };
 		0D01D4F12CC8FF3200E8DD3F /* NetworkCountriesDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCountriesDataSource.swift; sourceTree = "<group>"; };
 		0D01D4F32CC90CCC00E8DD3F /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		0D01D4FF2CCA88A200E8DD3F /* CountryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRow.swift; sourceTree = "<group>"; };
+		0D01D5012CCA955C00E8DD3F /* CustomAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAsyncImage.swift; sourceTree = "<group>"; };
 		0D7A68872CC67679001E5B90 /* Fun with flags.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fun with flags.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D7A688A2CC67679001E5B90 /* FunWithFlagsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunWithFlagsApp.swift; sourceTree = "<group>"; };
 		0D7A688C2CC67679001E5B90 /* CountriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,14 @@
 				0D01D4EF2CC8FC8D00E8DD3F /* LocalCountriesDataSource.swift */,
 			);
 			path = DataSources;
+			sourceTree = "<group>";
+		};
+		0D01D5032CCA9F6F00E8DD3F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				0D01D5012CCA955C00E8DD3F /* CustomAsyncImage.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		0D7A687E2CC67679001E5B90 = {
@@ -156,7 +168,9 @@
 		0D7A689E2CC68761001E5B90 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0D01D5032CCA9F6F00E8DD3F /* CustomViews */,
 				0D7A688C2CC67679001E5B90 /* CountriesListView.swift */,
+				0D01D4FF2CCA88A200E8DD3F /* CountryRow.swift */,
 				0D7A689F2CC68793001E5B90 /* CountryDetailView.swift */,
 			);
 			path = Views;
@@ -238,7 +252,9 @@
 				0D7A688D2CC67679001E5B90 /* CountriesListView.swift in Sources */,
 				0D01D4F42CC90CCC00E8DD3F /* CoreDataService.swift in Sources */,
 				0D01D4F02CC8FC8D00E8DD3F /* LocalCountriesDataSource.swift in Sources */,
+				0D01D5022CCA955C00E8DD3F /* CustomAsyncImage.swift in Sources */,
 				0D7A689A2CC685DA001E5B90 /* Country.swift in Sources */,
+				0D01D5002CCA88A200E8DD3F /* CountryRow.swift in Sources */,
 				0D01D4E92CC848CE00E8DD3F /* CoreDataStack.swift in Sources */,
 				0D01D4E42CC83E6300E8DD3F /* NetworkService.swift in Sources */,
 				0D7A68A22CC6C400001E5B90 /* CountryDetailViewModel.swift in Sources */,

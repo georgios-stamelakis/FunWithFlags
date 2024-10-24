@@ -33,20 +33,16 @@ struct CountryDetailView: View {
 
                 // Flag Section
                 VStack(alignment: .center, spacing: 12) {
-                    AsyncImage(url: country.flags.local) { image in
-                        image
-                            .resizable()
-                            .background(
-                                LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.5), Color.blue.opacity(0.1)]),
-                                               startPoint: .top,
-                                               endPoint: .bottom)
-                            )
-                    } placeholder: {
-                        Color(.gray)
-                    }
-                    .frame(width: 150, height: 90)
-                    .cornerRadius(8)
-                    .shadow(radius: 4)
+                    CustomAsyncImage(imageURLString: country.flags.png)
+
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.5), Color.blue.opacity(0.1)]),
+                                           startPoint: .top,
+                                           endPoint: .bottom)
+                        )
+                        .frame(width: 150, height: 90)
+                        .cornerRadius(8)
+                        .shadow(radius: 4)
                 }
 
                 // Country details
