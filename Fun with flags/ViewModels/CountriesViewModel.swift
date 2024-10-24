@@ -45,7 +45,11 @@ class CountriesViewModel: ObservableObject {
                     break
                 }
             }, receiveValue: { [weak self] countries in
-                self?.countries = countries
+                let sortedCountries = countries.sorted {
+                              $0.name.common.localizedCaseInsensitiveCompare($1.name.common) == .orderedAscending
+                          }
+
+                self?.countries = sortedCountries
                 self?.regions = Array(Set(countries.compactMap { $0.region }))
                 self?.filterCountries()
             })
